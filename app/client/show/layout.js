@@ -1,5 +1,5 @@
 import { Roboto } from 'next/font/google'
-import "./style.css";
+import "./style.scss";
 
 const roboto = Roboto({
 	weight: '700',

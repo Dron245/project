@@ -8,3 +8,12 @@ h1 {
 	font-size: 40px;
 	color: rgb(216, 206, 206);
 }
+
+.qwe {
+
+	&__asd {
+		width: 500px;
+		height: 200px;
+		background-color: aquamarine;
+	}
+}
