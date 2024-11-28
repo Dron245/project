@@ -14,7 +14,7 @@ export default async function Home() {
 		<>
 			<div className='posts__container'>
 				<h1 className='title'>Привет</h1>
-				<Image src={img} alt='Picture of the author' />
+				<Image priority={false} src={img} alt='Picture of the author' />
 				{posts.map((post) => (
 					<div key={post.id} className='posts'>
 						<h2 className='posts__title'>{post.title}</h2>

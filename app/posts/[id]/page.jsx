@@ -1,13 +1,21 @@
 import Post from '@/app/components/Post/Post';
+// export async function generateStaticParams() {
+// 	const posts = await fetch('https://dummyjson.com/posts')
+// 	.then((res) => res.json());
 
-export async function generateMetadata({ params, searchParams }) {
-	const id = await params.id
-	const post = await fethdata(id)
-	console.log(post);
+// 	return posts.map((post) => ({
+// 		id: post.id.toString(),
+// 	}));
+// }
+export async function generateMetadata(props) {
+	const params = await props.params;
+	const id = await params.id;
+	const post = await fethdata(id);
+	//  console.log(post);
 	return {
 		title: post.title,
-		description: post.body
-	}
+		description: post.body,
+	};
 }
 
 async function fethdata(id) {
@@ -18,7 +26,7 @@ async function fethdata(id) {
 }
 
 const PostPage = async ({ params }) => {
-	const { id } = await params
+	const { id } = await params;
 	const post = await fethdata(id);
 	// console.log(params);
 	return <Post post={post} />;
