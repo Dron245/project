@@ -1,14 +1,26 @@
 import Post from '@/app/components/Post/Post';
 
+export async function generateMetadata({ params, searchParams }) {
+	const id = await params.id
+	const post = await fethdata(id)
+	console.log(post);
+	return {
+		title: post.title,
+		description: post.body
+	}
+}
+
 async function fethdata(id) {
 	const resp = await fetch('https://dummyjson.com/posts/' + id);
 	const data = await resp.json();
+	// console.log(data);
 	return data;
 }
 
 const PostPage = async ({ params }) => {
-	const post = await fethdata(params.id);
-	console.log(params);
+	const { id } = await params
+	const post = await fethdata(id);
+	// console.log(params);
 	return <Post post={post} />;
 };
 

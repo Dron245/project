@@ -8,7 +8,7 @@ async function fethdata() {
 }
 export default async function Home() {
 	const resp = await fethdata();
-	const posts = resp.posts;
+	const {posts} = resp;
 
 	return (
 		<>
