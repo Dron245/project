@@ -1,6 +1,8 @@
 import Post from '@/app/components/Post/Post';
 // export async function generateStaticParams() {
-// 	const posts = await fetch('https://dummyjson.com/posts')
+// 	const posts = await fetch('https://dummyjson.com/posts', {
+// 		cache: 'force-cache'
+// 	})
 // 	.then((res) => res.json());
 
 // 	return posts.map((post) => ({
@@ -11,7 +13,6 @@ export async function generateMetadata(props) {
 	const params = await props.params;
 	const id = await params.id;
 	const post = await fethdata(id);
-	//  console.log(post);
 	return {
 		title: post.title,
 		description: post.body,
